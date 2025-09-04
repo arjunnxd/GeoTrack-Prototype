@@ -2195,3 +2195,255 @@
   white-space: nowrap;
   font-style: var(--text-xl-medium-font-style);
 }
+
+
+
+
+
+.screens-dashboard {
+  display: flex;
+  flex-direction: column;
+  width: 431px;
+  height: 917px;
+  align-items: center;
+  gap: 24px;
+  padding: var(--size-space-600);
+  position: relative;
+  background-image: url(./img/dashboard.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.screens-dashboard .header {
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  padding: 0px var(--size-space-400) 0px var(--size-space-400);
+  align-self: stretch;
+  width: 100%;
+  background-color: #d3d9d1ed;
+  border-radius: var(--shape-corner-large-increased);
+  align-items: center;
+  position: relative;
+}
+
+.screens-dashboard .div {
+  display: inline-flex;
+  height: 32px;
+  flex: 0 0 auto;
+  align-items: center;
+  position: relative;
+}
+
+.screens-dashboard .container {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.screens-dashboard .button {
+  width: 32px;
+  height: 32px;
+  padding: var(--tokens-padding-padding-xxs);
+  background-color: var(--premitives-color-secondary);
+  border-radius: var(--premitives-radius-lg);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--tokens-spacing-spacing-sm);
+  position: relative;
+}
+
+.screens-dashboard .icon {
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  aspect-ratio: 1;
+}
+
+.screens-dashboard .bell {
+  position: relative;
+  width: 14px;
+  height: 14px;
+}
+
+.screens-dashboard .element-avatars {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  aspect-ratio: 1;
+  background-image: url(./img/3d-avatar-17.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.screens-dashboard .start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.screens-dashboard .button-2 {
+  width: 48px;
+  height: 48px;
+  padding: var(--size-space-300) var(--tokens-padding-padding-xxs)
+    var(--size-space-300) var(--tokens-padding-padding-xxs);
+  background-color: var(--premitives-color-primary);
+  border-radius: var(--shape-corner-large-increased);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--tokens-spacing-spacing-sm);
+  position: relative;
+}
+
+.screens-dashboard .x-wrapper {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  aspect-ratio: 1;
+}
+
+.screens-dashboard .x {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.screens-dashboard .text-wrapper {
+  position: relative;
+  width: fit-content;
+  font-family: var(--text-xl-medium-font-family);
+  font-weight: var(--text-xl-medium-font-weight);
+  color: var(--premitives-color-muted-foreground);
+  font-size: var(--text-xl-medium-font-size);
+  letter-spacing: var(--text-xl-medium-letter-spacing);
+  line-height: var(--text-xl-medium-line-height);
+  white-space: nowrap;
+  font-style: var(--text-xl-medium-font-style);
+}
+
+.screens-dashboard .dialog {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--premitives-spacing-4);
+  padding: var(--premitives-spacing-5);
+  background-color: var(--premitives-color-popover);
+  border-radius: var(--premitives-radius-2xl);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.screens-dashboard .content {
+  display: flex;
+  justify-content: space-between;
+  align-self: stretch;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.screens-dashboard .content-2 {
+  display: inline-flex;
+  gap: var(--size-space-150);
+  align-items: center;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.screens-dashboard .text-wrapper-2 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: var(--text-xl-semibold-font-family);
+  font-weight: var(--text-xl-semibold-font-weight);
+  color: var(--premitives-color-popover-foreground);
+  font-size: var(--text-xl-semibold-font-size);
+  letter-spacing: var(--text-xl-semibold-letter-spacing);
+  line-height: var(--text-xl-semibold-line-height);
+  white-space: nowrap;
+  font-style: var(--text-xl-semibold-font-style);
+}
+
+.screens-dashboard .text-wrapper-3 {
+  position: relative;
+  width: fit-content;
+  font-family: var(--text-base-regular-font-family);
+  font-weight: var(--text-base-regular-font-weight);
+  color: var(--premitives-color-muted-foreground);
+  font-size: var(--text-base-regular-font-size);
+  letter-spacing: var(--text-base-regular-letter-spacing);
+  line-height: var(--text-base-regular-line-height);
+  white-space: nowrap;
+  font-style: var(--text-base-regular-font-style);
+}
+
+.screens-dashboard .chevron-right {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  aspect-ratio: 1;
+}
+
+.screens-dashboard .separator {
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  height: 1px;
+  background-color: var(--premitives-color-border);
+}
+
+.screens-dashboard .dialog-footer {
+  align-items: center;
+  justify-content: space-around;
+  gap: 12px;
+  display: flex;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.screens-dashboard .container-2 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+}
+
+.screens-dashboard .text-wrapper-4 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: var(--text-xl-medium-font-family);
+  font-weight: var(--text-xl-medium-font-weight);
+  color: var(--premitives-color-muted-foreground);
+  font-size: var(--text-xl-medium-font-size);
+  letter-spacing: var(--text-xl-medium-letter-spacing);
+  line-height: var(--text-xl-medium-line-height);
+  white-space: nowrap;
+  font-style: var(--text-xl-medium-font-style);
+}
