@@ -6,42 +6,116 @@
     <link rel="stylesheet" href="globals.css" />
     <link rel="stylesheet" href="styleguide.css" />
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Google Maps API -->
+    <script async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNq0BGV0YybupTuNr2ITDFtcrpQYaJuvo&callback=initMap">
+    </script>
+
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Map fills whole screen */
+      #map {
+        width: 100%;
+        height: 100vh;
+      }
+
+      /* Overlay UI */
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        padding: 16px;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .dialog {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+        padding: 16px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        width: 90%;
+        max-width: 400px;
+      }
+    </style>
   </head>
+
   <body>
-    <div class="screens-dashboard">
+    <!-- ✅ Google Map (background) -->
+    <div id="map"></div>
+
+    <!-- ✅ Overlay Content -->
+    <div class="overlay">
+      <!-- Header -->
       <div class="header">
-        <div class="div">
-          <div class="container">
-            <div class="button">
-              <div class="icon"><img class="bell" src="img/bell.svg" /></div>
-            </div>
-          </div>
-        </div>
-        <div class="container"><div class="element-avatars"></div></div>
+        <a href="alerts.html"><div class="icon"><img class="bell" src="./icons/Bell.png" width="28" /></div></a>
+        <a href="profile.html"><div class="element-avatars"><img src="./icons/17.png" width="32" /></div></a>
       </div>
-      <div class="start">
-        <div class="button-2">
-          <div class="x-wrapper"><img class="x" src="img/x.svg" /></div>
-        </div>
-        <div class="text-wrapper">00:00:01</div>
-        <div class="dialog">
-          <div class="content">
-            <div class="content-2">
-              <div class="text-wrapper-2">Nithish</div>
+    </div>
+
+    <!-- Dialog Box -->
+    <div class="dialog">
+      <div class="content">
+        <div class="content-2">
+          <a href="vehicles.html" style="text-decoration: none;">
+            <div style="display: flex; justify-content: space-between;">
+            <div>
+              <div class="text-wrapper-2"><b>Nithish</b></div>
               <div class="text-wrapper-3">Vijayawada</div>
             </div>
-            <img class="chevron-right" src="img/chevron-right.svg" />
-          </div>
-          <div class="separator"></div>
-          <div class="dialog-footer">
-            <div class="container-2">
-              <div class="text-wrapper-4">AP00B0001</div>
-              <div class="text-wrapper-4">0 km/h</div>
-              <div class="text-wrapper-4">0 km/h</div>
+            <div>
+              <img src="./icons/arrow-right.png" alt="">
             </div>
           </div>
+          </a>
+        </div>
+      </div>
+      <div class="separator" style="height:1px; background:#ddd; margin:8px 0;"></div>
+      <div class="dialog-footer">
+        <div class="container-2" style="display:flex; justify-content:space-between;">
+          <div class="text-wrapper-4">AP00B0001</div>
+          <div class="text-wrapper-4">0 km/h</div>
+          <div class="text-wrapper-4">0 km/h</div>
         </div>
       </div>
     </div>
+
+    <!-- ✅ JavaScript for Map -->
+    <script>
+      function initMap() {
+        // Default center (Vijayawada)
+        const location = { lat: 16.5062, lng: 80.6480 };
+
+        // Create full screen map
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 12,
+          center: location,
+        });
+
+        // Add marker
+        new google.maps.Marker({
+          position: location,
+          map: map,
+          title: "Nithish - Vijayawada",
+        });
+      }
+    </script>
   </body>
 </html>

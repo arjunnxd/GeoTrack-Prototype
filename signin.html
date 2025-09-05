@@ -10,32 +10,95 @@
   <body>
     <div class="screens-sign-in">
       <header class="header">
-        <div class="container"><img class="arrow-left" src="img/arrow-left.svg" /></div>
+        <a href="">
+          <div class="container">
+            <img class="arrow-left" src="./icons/arrow-left.png" />
+          </div>
+        </a>
         <div class="title">Sign In</div>
         <div class="container"></div>
       </header>
+
       <div class="content">
-        <div class="div-wrapper"><p class="text-wrapper">Continue sign in by verifying the email</p></div>
-        <div class="input">
-          <input class="label" placeholder="Email" type="email" />
-          <div class="input-field"><input class="placeholder" placeholder="something@gmail.com" type="email" /></div>
+        <div class="div-wrapper">
+          <p class="text-wrapper">Continue sign in by verifying the email</p>
         </div>
+
+        <!-- Email Input -->
         <div class="input">
-          <div class="div">Password</div>
-          <div class="input-field"><div class="placeholder-2">********</div></div>
+          <label class="label" for="email">Email</label>
+          <div class="input-field">
+            <input
+              id="email"
+              class="placeholder"
+              placeholder="something@gmail.com"
+              type="email"
+              required
+            />
+          </div>
         </div>
-        <button class="button">
+
+        <!-- Password Input -->
+        <div class="input">
+          <label class="div" for="password">Password</label>
+          <div class="input-field">
+            <input
+              id="password"
+              class="placeholder-2"
+              type="password"
+              placeholder="Enter Your Password"
+              style="
+              border:none;
+              box-shadow:none;
+              outline: none;
+              "
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Continue Button -->
+        <a href="dashboard.html">
+          <button class="button" id="continueBtn" type="button">
           <div class="text">Continue</div>
-          <div class="icon"><img class="arrow-right" src="img/arrow-right.svg" /></div>
+          <div class="icon">
+            <img class="arrow-right" src="./icons/arrow-right.png" />
+          </div>
         </button>
+        </a>
       </div>
+
+      <!-- Sign up redirect -->
       <div class="don-t-have-an-wrapper">
         <p class="don-t-have-an">
-        <span class="span">Don’t Have an account? </span>
-        <a href="createaccount.html" class="text-wrapper-2">Sign up</a>
-       </p>
-
+          <span class="span">Don’t have an account? </span>
+          <a href="createaccount.html" class="text-wrapper-2">Sign up</a>
+        </p>
       </div>
     </div>
+
+    <!-- ✅ JavaScript for Email Validation -->
+    <script>
+      document.getElementById('continueBtn').addEventListener('click', function () {
+        const emailInput = document.getElementById('email').value.trim();
+        const passwordInput = document.getElementById('password').value.trim();
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailInput || !emailRegex.test(emailInput)) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+
+        if (!passwordInput) {
+          alert('Please enter your password.');
+          return;
+        }
+
+        // You can now proceed with login (e.g. form submit, navigation)
+        alert('Login successful (dummy flow)');
+        // window.location.href = "dashboard.html"; // uncomment if needed
+      });
+    </script>
   </body>
 </html>

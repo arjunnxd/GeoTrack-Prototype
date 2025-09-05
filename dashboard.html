@@ -6,24 +6,52 @@
     <link rel="stylesheet" href="globals.css" />
     <link rel="stylesheet" href="styleguide.css" />
     <link rel="stylesheet" href="style.css" />
+
+    <!-- ✅ Google Maps JS with callback to initMap() -->
+    <script
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNq0BGV0YybupTuNr2ITDFtcrpQYaJuvo&callback=initMap">
+    </script>
+
+    <style>
+      #map {
+        width: 100%;
+        height: 400px;
+        border-radius: 12px;
+        margin: 16px 0;
+      }
+    </style>
   </head>
+
   <body>
     <div class="screens-dashboard">
+      <!-- Header -->
       <div class="header">
         <div class="div">
-          <div class="container"><img class="arrow-left" src="img/arrow-left.svg" /></div>
           <div class="container">
             <div class="button">
-              <div class="icon"><img class="bell" src="img/bell.svg" /></div>
+              
+                <img class="bell" src="./icons/Bell.png" />
+              
             </div>
           </div>
         </div>
-        <div class="element-avatars-wrapper"><div class="element-avatars"></div></div>
+        <div class="element-avatars-wrapper">
+          <div class="element-avatars"></div>
+        </div>
       </div>
+
+      <!-- Info Text -->
       <div class="div-wrapper">
-        <p class="text-wrapper">Click Start to share your location and see who’s nearby.</p>
+        <p class="text-wrapper">
+          Click Start to share your location and see who’s nearby.
+        </p>
       </div>
-      <img class="img" src="img/container.png" />
+
+      <!-- ✅ Google Map Container -->
+      <div id="map"></div>
+
+      <!-- Dialog Info -->
       <div class="dialog">
         <div class="content">
           <div class="content-2">
@@ -41,12 +69,36 @@
           </div>
         </div>
       </div>
-      <div class="start">
+
+      <!-- Start Button -->
+      <a href="dashboardmain.html">
+        <div class="start">
         <div class="button-2">
-          <div class="check-wrapper"><img class="check" src="img/check.svg" /></div>
+          <div class="check-wrapper">
+            <img class="check" src="./icons/Check.png" />
+          </div>
         </div>
         <div class="text-wrapper-5">Tap to Start</div>
       </div>
+      </a>
     </div>
+
+    <!-- ✅ Google Maps Init -->
+    <script>
+      function initMap() {
+        const location = { lat: 16.5062, lng: 80.6480 }; // Vijayawada
+
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 12,
+          center: location,
+        });
+
+        new google.maps.Marker({
+          position: location,
+          map: map,
+          title: "Nithish - Vijayawada",
+        });
+      }
+    </script>
   </body>
 </html>

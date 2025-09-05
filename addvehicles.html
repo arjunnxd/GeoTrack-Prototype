@@ -7,35 +7,170 @@
     <link rel="stylesheet" href="styleguide.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
+  <style>
+      /* Remove border when input is focused or has value */
+      input {
+        outline: none;
+        width: 100%;
+        box-sizing: border-box;
+        border: none;
+        padding: 2%;
+      }
+      input:focus,
+      input:not(:placeholder-shown) {
+        border: none;
+      }
+      /* Optional: style wrapper to keep layout consistent */
+      .input-field,
+      .input-field-2 {
+        padding: 0;
+      }
+      /* Remove border on focus for the wrapper if you want exactly no border on container */
+      .input-field input:focus,
+      .input-field-2 input:focus {
+        border: none;
+      }
+      .input-field {
+        position: relative;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding-right: 30px; /* space for the chevron */
+        background-color: white;
+        display: flex;
+        align-items: center;
+        height: 40px; /* adjust for consistent height with inputs */
+      }
+
+      .input-field select {
+        width: 100%;
+        border: none;
+        outline: none;
+        background: transparent;
+        padding: 8px 10px;
+        appearance: none; /* remove default arrow */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .input-field select:focus {
+        border: none;
+        outline: none;
+      }
+    </style>
   <body>
     <div class="screens-add-vehicles">
       <header class="header">
-        <div class="container"><img class="arrow-left" src="img/arrow-left.svg" /></div>
+        <div class="container"><img class="arrow-left" src="addvehicles.html" /></div>
         <div class="title">Add Vehicles</div>
         <div class="container"></div>
       </header>
       <div class="content">
         <div class="div">
           <div class="input">
-            <div class="label">Vehicle Type</div>
-            <div class="input-field">
-              <div class="placeholder">Select the Vehicle Type</div>
-              <div class="right-icon"><img class="chevron-down" src="img/chevron-down.svg" /></div>
-            </div>
-          </div>
+  <div class="label">Vehicle Type</div>
+  <div class="input-field">
+    <select id="vehicle-type-select" name="vehicle-type" required>
+      <option value="" disabled selected>Select the Vehicle Type</option>
+      <option value="bike">Bike</option>
+      <option value="car">Car</option>
+      <option value="bus">Bus</option>
+      <option value="truck">Truck</option>
+    </select>
+  </div>
+</div>
           <div class="input">
-            <div class="label">Vehicle Number</div>
-            <div class="input-field-2"><div class="placeholder">AP00B0000</div></div>
+          <div class="label">Vehicle Number</div>
+          <div class="input-field-2">
+            <input
+  type="text"
+  name="vehicle-number"
+  id="vehicleNumber" 
+  placeholder="AP00B0000"
+  autocomplete="off"
+/>
+
           </div>
+        </div>
           <div class="frame">
             <div class="input">
-              <div class="label">Aadhar</div>
-              <div class="input-field-2"><div class="placeholder">XXXX-XXXX-XXXX</div></div>
+            <div class="label">Aadhar</div>
+            <div class="input-field-2">
+              <input
+  type="text"
+  id="aadhar-input"
+  name="aadhar"
+  placeholder="XXXX-XXXX-XXXX"
+  maxlength="14"              
+  pattern="\d{4}-\d{4}-\d{4}" 
+  inputmode="numeric"         
+  autocomplete="off"
+/>
             </div>
           </div>
-          <button class="button"><div class="text">SEND OTP</div></button>
+          </div>
+          <a href="" class="button" id="sendOtpBtn">
+  <div class="text">SEND OTP</div>
+  <div class="icon"></div>
+</a>
         </div>
       </div>
     </div>
+     <script>
+  const aadharInput = document.getElementById('aadhar-input');
+
+  aadharInput.addEventListener('input', function () {
+    let digits = this.value.replace(/\D/g, '').slice(0, 12);
+    let formatted = digits.replace(/(\d{4})(?=\d)/g, '$1-');
+    this.value = formatted;
+  });
+
+  document.getElementById('sendOtpBtn').addEventListener('click', function (event) {
+    const licenseInput = document.getElementById('licenseNumber').value.trim();
+    const vehicleNumberInput = document.getElementById('vehicleNumber').value.trim();
+    const aadharInputValue = document.getElementById('aadhar-input').value.trim();
+    const vehicleType = document.getElementById('vehicle-type-select').value;
+
+    const licenseRegex = /^[A-Z]{2}\d{2}\d{4}\d{7}$/;
+    const vehicleNumberRegex = /^[A-Z]{2}\d{2}[A-Z]{1,2}\d{4}$/;
+    const aadharRegex = /^\d{4}-\d{4}-\d{4}$/;
+
+    // Validate empty fields
+    if (!vehicleType) {
+      event.preventDefault();
+      alert('Please select a vehicle type.');
+      return;
+    }
+
+    if (!vehicleNumberInput) {
+      event.preventDefault();
+      alert('Please enter your vehicle number.');
+      return;
+    }
+
+
+    if (!aadharInputValue) {
+      event.preventDefault();
+      alert('Please enter your Aadhar number.');
+      return;
+    }
+
+    // Validate format for each field
+  
+
+    if (!vehicleNumberRegex.test(vehicleNumberInput)) {
+      event.preventDefault();
+      alert('Please enter a valid vehicle number.\nFormat: SS00AA0000 (e.g., AP31CV1234)');
+      return;
+    }
+
+    if (!aadharRegex.test(aadharInputValue)) {
+      event.preventDefault();
+      alert('Please enter a valid Aadhar number.\nFormat: XXXX-XXXX-XXXX');
+      return;
+    }
+  });
+</script>
   </body>
 </html>
